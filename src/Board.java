@@ -23,7 +23,7 @@ public class Board {
 				{ true, false, true, false, true, false, true, false }, };
 	}
 
-	public void loadBoard() {
+	public void drawBoard() {
 
 		System.out.printf(" ", "");
 		for (int i = 0; i < positions[0].length; i++) {
@@ -50,9 +50,4 @@ public class Board {
 			System.out.println("\n  +---+---+---+---+---+---+---+---+");
 		}
 	}
-	
-	public void printEndLines() {
-		
-	}
-
 }
