@@ -41,13 +41,18 @@ public class Board {
 				if (positions[i][j] == 1) {
 					System.out.print(" " + "W");
 				}
-				 if (positions[i][j] == 2) {
-				 System.out.print(" " + "B");
-				 }
+				if (positions[i][j] == 2) {
+					System.out.print(" " + "B");
+				}
 				System.out.print(" " + "|");
+				
 			}
-			System.out.println("\n  +");
+			System.out.println("\n  +---+---+---+---+---+---+---+---+");
 		}
+	}
+	
+	public void printEndLines() {
+		
 	}
 
 }
