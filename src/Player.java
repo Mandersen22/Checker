@@ -2,7 +2,7 @@
 public class Player {
 	
 	public String playerName = null;
-	public boolean playerType = true; // True = Player1, False = Player 2
+	public boolean playerType = true; // True = Player1, False = Player2
 	
 	public Player(String name, boolean type) {
 		this.playerName = name;
