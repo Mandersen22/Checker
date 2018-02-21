@@ -7,25 +7,31 @@ public class Game {
 	private Scanner s;
 	private ArrayList<Player> p;
 	
+	private Scanner x1, x2, y1, y2;
+
 	public Game() {
 		super();
 		
 		b = new Board();
 		s = new Scanner(System.in);
 		p = new ArrayList<Player>();
+		
+		x1 = new Scanner(System.in);
+		y1 = new Scanner(System.in);
+		
+		x2 = new Scanner(System.in);
+		y2 = new Scanner(System.in);
 	}
 	
 	public void startGame() {
 		
 		// Load players
-		getPlayerDetails();
-		
-		// Load game board
-		
+//		getPlayerDetails();
 		
 		// Run game
 		while(true) {
-			
+			b.loadBoard();
+			System.exit(1);
 		}
 	}
 
@@ -43,7 +49,6 @@ public class Game {
 				System.out.println(name + " has been added as player 2\n");
 			}
 		}
-
 	}
 	
 }
