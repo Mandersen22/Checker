@@ -1,28 +1,28 @@
 
 public class Player {
 	
-	public String playerName = null;
-	public boolean playerType = true; // True = Player1, False = Player2
+	public String name = null;
+	public boolean type = true; // True = Player1, False = Player2
 	
 	public Player(String name, boolean type) {
-		this.playerName = name;
-		this.playerType = type;
+		this.name = name;
+		this.type = type;
 	}
 
 	public String getPlayerName() {
-		return playerName;
+		return name;
 	}
 
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
+	public void setPlayerName(String name) {
+		this.name = name;
 	}
 
 	public boolean isPlayerType() {
-		return playerType;
+		return type;
 	}
 
-	public void setPlayerType(boolean playerType) {
-		this.playerType = playerType;
+	public void setPlayerType(boolean type) {
+		this.type = type;
 	}
 	
 }

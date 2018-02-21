@@ -1,51 +1,57 @@
 
 public class Board {
 
-	public int[][] positions;
-	public boolean[][] movableField;
-
+	public boolean[][] movablePositions;
+	public Pieces[][] piecePositions;
+	
 	public Board() {
 		super();
 
-		// Positions of player pieces
-		positions = new int[][] { { 0, 1, 0, 1, 0, 1, 0, 1, }, { 1, 0, 1, 0, 1, 0, 1, 0, }, { 0, 1, 0, 1, 0, 1, 0, 1, },
-				{ 0, 0, 0, 0, 0, 0, 0, 0, }, { 0, 0, 0, 0, 0, 0, 0, 0, }, { 2, 0, 2, 0, 2, 0, 2, 0, },
-				{ 0, 2, 0, 2, 0, 2, 0, 2, }, { 2, 0, 2, 0, 2, 0, 2, 0, }, };
+		// Static positions of game pieces.
+		piecePositions = new Pieces[][] { 
+			{ Pieces.NONE , Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, }, 
+			{ Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, }, 
+			{ Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, Pieces.NONE, Pieces.WHITE, },
+			{ Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, }, 
+			{ Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, Pieces.NONE, }, 
+			{ Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, },
+			{ Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, }, 
+			{ Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, Pieces.BLACK, Pieces.NONE, }, };
 
-		// Positions that is movable for every piece
-		movableField = new boolean[][] { { false, true, false, true, false, true, false, true },
-				{ true, false, true, false, true, false, true, false },
-				{ false, true, false, true, false, true, false, true },
-				{ true, false, true, false, true, false, true, false },
-				{ false, true, false, true, false, true, false, true },
-				{ true, false, true, false, true, false, true, false },
-				{ false, true, false, true, false, true, false, true },
-				{ true, false, true, false, true, false, true, false }, };
+		// Positions that is valid to have a game piece on.
+		movablePositions = new boolean[][] { 
+			{ false, true, false, true, false, true, false, true },
+			{ true, false, true, false, true, false, true, false },
+			{ false, true, false, true, false, true, false, true },
+			{ true, false, true, false, true, false, true, false },
+			{ false, true, false, true, false, true, false, true },
+			{ true, false, true, false, true, false, true, false },
+			{ false, true, false, true, false, true, false, true },
+			{ true, false, true, false, true, false, true, false }, };
 	}
 
 	public void drawBoard() {
 
 		System.out.printf(" ", "");
-		for (int i = 0; i < positions[0].length; i++) {
+		for (int i = 0; i < piecePositions[0].length; i++) {
 			System.out.printf("   " + i);
 		}
+		
 		System.out.println("");
 		System.out.println("  +---+---+---+---+---+---+---+---+");
-
-		for (int i = 0; i < positions.length; i++) {
+		for (int i = 0; i < piecePositions.length; i++) {
 			System.out.print(i + " |");
-			for (int j = 0; j < positions.length; j++) {
-				if (positions[i][j] == 0) {
+			for (int j = 0; j < piecePositions.length; j++) {
+				if (piecePositions[i][j].equals(Pieces.NONE)) {
 					System.out.print(" " + " ");
 				}
-				if (positions[i][j] == 1) {
-					System.out.print(" " + "W");
+				if (piecePositions[i][j].equals(Pieces.WHITE)) {
+					System.out.print(" " + "X");
 				}
-				if (positions[i][j] == 2) {
-					System.out.print(" " + "B");
+				if (piecePositions[i][j].equals(Pieces.BLACK)) {
+					System.out.print(" " + "o");
 				}
-				System.out.print(" " + "|");
-				
+				System.out.print(" " + "|");			
 			}
 			System.out.println("\n  +---+---+---+---+---+---+---+---+");
 		}
