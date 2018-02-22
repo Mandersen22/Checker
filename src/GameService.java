@@ -3,13 +3,10 @@ import java.util.Scanner;
 
 public class GameService implements IGameService {
 
-	private Scanner s;
 	private boolean correctInput = false;
 
 	public GameService() {
 		super();
-
-		s = new Scanner(System.in);
 	}
 
 	@Override
@@ -58,76 +55,103 @@ public class GameService implements IGameService {
 		}
 	}
 
+	@Override
 	public int getCoordinateInput_X(Pieces[][] piecePositions) {
-		int coordinate = -1;
 		correctInput = false;
 
 		while (!correctInput) {
+			int input;
+			Scanner scan = new Scanner(System.in);
+
 			try {
 				System.out.print("Enter x coordinate of piece: ");
-				coordinate = s.nextInt();
+				input = scan.nextInt();
 
-				if (coordinate <= piecePositions.length) {
+				if (input <= piecePositions.length) {
 					correctInput = true;
-					return coordinate;
+					return input;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("\n");
-				System.out.println("Wrong input receivied");
+				System.out.println("\nWrong input receivied\n");
+			} catch (Exception e1) {
+				System.out.println("\nError happened\n");
 			}
 		}
-
-		return 0;
+		return -1;
 	}
 
+	@Override
 	public int getCoordinateInput_Y(Pieces[][] piecePositions) {
-		int coordinate = -1;
 		correctInput = false;
 
 		while (!correctInput) {
+			int input;
+			Scanner scan = new Scanner(System.in);
+
 			try {
 				System.out.print("Enter y coordinate of piece: ");
-				coordinate = s.nextInt();
+				input = scan.nextInt();
 
-				if (coordinate <= piecePositions.length) {
+				if (input <= piecePositions.length) {
 					correctInput = true;
-					return coordinate;
+					return input;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("\n");
-				System.out.println("Wrong input receivied");
+				System.out.println("\nWrong input receivied\n");
+			} catch (Exception e1) {
+				System.out.println("\nError happened\n");
 			}
 		}
-
-		return 0;
+		return -1;
 	}
 
+	@Override
 	public int getNewCoordinateInput_X(Pieces[][] piecePositions) {
-		int coordinate;
+		correctInput = false;
 
-		System.out.print("\nEnter new x coordinate you want your piece moved to: ");
+		while (!correctInput) {
+			int input;
+			Scanner scan = new Scanner(System.in);
 
-		coordinate = s.nextInt();
+			try {
+				System.out.print("\nEnter new x coordinate you want your piece moved to: ");
+				input = scan.nextInt();
 
-		if (coordinate <= piecePositions.length) {
-			return coordinate;
+				if (input <= piecePositions.length) {
+					correctInput = true;
+					return input;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("\nWrong input receivied");
+			} catch (Exception e1) {
+				System.out.println("\nError happened");
+			}
 		}
-		return 0;
+		return -1;
 	}
 
+	@Override
 	public int getNewCoordinateInput_Y(Pieces[][] piecePositions) {
-		int coordinate;
+		correctInput = false;
 
-		try {
-			System.out.print("Enter new y coordinate you want your piece moved to: ");
-			coordinate = s.nextInt();
+		while (!correctInput) {
+			int input;
+			Scanner scan = new Scanner(System.in);
 
-			if (coordinate <= piecePositions.length) {
-				return coordinate;
+			try {
+				System.out.print("\nEnter new y coordinate you want your piece moved to: ");
+				input = scan.nextInt();
+
+				if (input <= piecePositions.length) {
+					correctInput = true;
+					return input;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("\nWrong input receivied");
+			} catch (Exception e1) {
+				System.out.println("\nError happened");
 			}
-		} catch (Exception e) {
-
 		}
-		return 0;
+		return -1;
 	}
 }
