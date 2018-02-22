@@ -1,6 +1,17 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class GameService implements IGameService {
-	
+
+	private Scanner s;
+	private boolean correctInput = false;
+
+	public GameService() {
+		super();
+
+		s = new Scanner(System.in);
+	}
+
 	@Override
 	public boolean changePlayerTurn(boolean turn) {
 		if (turn)
@@ -37,7 +48,7 @@ public class GameService implements IGameService {
 	}
 
 	@Override
-	public boolean validPieceOnCoordinate(Pieces[][] p, boolean turn, int x, int y) {
+	public boolean pieceOnCoordinate(Pieces[][] p, boolean turn, int x, int y) {
 		if (turn == true && p[y][x] == Pieces.WHITE) {
 			return true;
 		} else if (turn == false && p[y][x] == Pieces.BLACK) {
@@ -45,5 +56,78 @@ public class GameService implements IGameService {
 		} else {
 			return false;
 		}
+	}
+
+	public int getCoordinateInput_X(Pieces[][] piecePositions) {
+		int coordinate = -1;
+		correctInput = false;
+
+		while (!correctInput) {
+			try {
+				System.out.print("Enter x coordinate of piece: ");
+				coordinate = s.nextInt();
+
+				if (coordinate <= piecePositions.length) {
+					correctInput = true;
+					return coordinate;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("\n");
+				System.out.println("Wrong input receivied");
+			}
+		}
+
+		return 0;
+	}
+
+	public int getCoordinateInput_Y(Pieces[][] piecePositions) {
+		int coordinate = -1;
+		correctInput = false;
+
+		while (!correctInput) {
+			try {
+				System.out.print("Enter y coordinate of piece: ");
+				coordinate = s.nextInt();
+
+				if (coordinate <= piecePositions.length) {
+					correctInput = true;
+					return coordinate;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("\n");
+				System.out.println("Wrong input receivied");
+			}
+		}
+
+		return 0;
+	}
+
+	public int getNewCoordinateInput_X(Pieces[][] piecePositions) {
+		int coordinate;
+
+		System.out.print("\nEnter new x coordinate you want your piece moved to: ");
+
+		coordinate = s.nextInt();
+
+		if (coordinate <= piecePositions.length) {
+			return coordinate;
+		}
+		return 0;
+	}
+
+	public int getNewCoordinateInput_Y(Pieces[][] piecePositions) {
+		int coordinate;
+
+		try {
+			System.out.print("Enter new y coordinate you want your piece moved to: ");
+			coordinate = s.nextInt();
+
+			if (coordinate <= piecePositions.length) {
+				return coordinate;
+			}
+		} catch (Exception e) {
+
+		}
+		return 0;
 	}
 }
