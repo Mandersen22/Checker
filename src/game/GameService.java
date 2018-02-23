@@ -68,7 +68,7 @@ public class GameService implements IGameService {
 				System.out.print("Enter x coordinate of piece: ");
 				input = scan.nextInt();
 
-				if (input <= piecePositions.length) {
+				if (input <= piecePositions.length && input > -1) {
 					correctInput = true;
 					return input;
 				}
@@ -96,7 +96,7 @@ public class GameService implements IGameService {
 				System.out.print("Enter y coordinate of piece: ");
 				input = scan.nextInt();
 
-				if (input <= piecePositions.length) {
+				if (input <= piecePositions.length && input > -1) {
 					correctInput = true;
 					return input;
 				}
@@ -124,7 +124,7 @@ public class GameService implements IGameService {
 				System.out.print("\nEnter new x coordinate you want your piece moved to: ");
 				input = scan.nextInt();
 
-				if (input <= piecePositions.length) {
+				if (input <= piecePositions.length && input > -1) {
 					correctInput = true;
 					return input;
 				}
@@ -149,10 +149,10 @@ public class GameService implements IGameService {
 			Scanner scan = new Scanner(System.in);
 
 			try {
-				System.out.print("\nEnter new y coordinate you want your piece moved to: ");
+				System.out.print("Enter new y coordinate you want your piece moved to: ");
 				input = scan.nextInt();
 
-				if (input <= piecePositions.length) {
+				if (input <= piecePositions.length && input > -1) {
 					correctInput = true;
 					return input;
 				}
