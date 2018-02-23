@@ -1,3 +1,4 @@
+package game;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -71,6 +72,9 @@ public class GameService implements IGameService {
 					correctInput = true;
 					return input;
 				}
+				else if (input < piecePositions.length - piecePositions.length || input > piecePositions.length) {
+					System.out.println("\nWrong coordinate entered, must be within 0-8\n");
+				}
 			} catch (InputMismatchException e) {
 				System.out.println("\nWrong input receivied\n");
 			} catch (Exception e1) {
@@ -95,6 +99,9 @@ public class GameService implements IGameService {
 				if (input <= piecePositions.length) {
 					correctInput = true;
 					return input;
+				}
+				else if (input < piecePositions.length - piecePositions.length || input > piecePositions.length) {
+					System.out.println("\nWrong coordinate entered, must be within 0-8\n");
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("\nWrong input receivied\n");
@@ -121,6 +128,9 @@ public class GameService implements IGameService {
 					correctInput = true;
 					return input;
 				}
+				else if (input < piecePositions.length - piecePositions.length || input > piecePositions.length) {
+					System.out.println("\nWrong coordinate entered, must be within 0-8\n");
+				}
 			} catch (InputMismatchException e) {
 				System.out.println("\nWrong input receivied");
 			} catch (Exception e1) {
@@ -145,6 +155,9 @@ public class GameService implements IGameService {
 				if (input <= piecePositions.length) {
 					correctInput = true;
 					return input;
+				}
+				else if (input < piecePositions.length - piecePositions.length || input > piecePositions.length) {
+					System.out.println("\nWrong coordinate entered, must be within 0-8\n");
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("\nWrong input receivied");
