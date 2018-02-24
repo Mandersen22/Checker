@@ -41,7 +41,7 @@ public class Game {
 		}
 	}
 
-	public void takeTurn() {
+	private void takeTurn() {
 		
 		validCoordinates = false;
 		validNewCoordinates = false;
